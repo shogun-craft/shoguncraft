@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShogunCraft | Professional Websites</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ShogunCraft Premium Color Palette & Styling */
+        :root {
+            --bg-color: #0d0d0f;
+            --card-bg: #16161a;
+            --card-bg-hover: #1c1c22;
+            --primary: #ff3b47; /* Bold modern red */
+            --primary-hover: #e02430;
+            --accent: #ffb703; /* Samurai gold */
+            --text-main: #ffffff;
+            --text-muted: #a1a1aa;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 80px;
+            overflow-x: hidden;
+        }
+
+        /* Header / Navigation */
+        header {
+            background-color: rgba(13, 13, 15, 0.8);
+            backdrop-filter: blur(12px); /* Modern 'glass' effect */
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .logo-container img {
+            max-width: 120px;
+            height: auto;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            background-color: #1c1c22;
+            padding: 6px;
+            box-shadow: 0 8px 24px rgba(255, 183, 3, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container img:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-top: 15px;
+            color: var(--text-main);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-top: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 840px;
+            margin: 60px auto 40px auto;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--card-bg) 0%, #1a1a24 100%);
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary);
+        }
+
+        .hero h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            line-height: 1.3;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Pricing Grid Layout */
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            background: var(--card-bg-hover);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Featured 'Popular' Card */
+        .price-card.featured {
+            border: 2px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(255, 59, 71, 0.1);
+        }
+        
+        .price-card.featured:hover {
+            box-shadow: 0 20px 40px rgba(255, 59, 71, 0.2);
+            border-color: var(--primary);
+        }
+
+        .badge {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-main);
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 0 auto 20px auto;
+            width: fit-content;
+        }
+
+        .price-card.featured .badge {
+            background: linear-gradient(135deg, var(--primary) 0%, #b81d24 100%);
+            border: none;
+            color: white;
+            box-shadow: 0 4px 12px rgba(255, 59, 71, 0.3);
+        }
+
+        .price-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        .price span {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        ul {
+            list-style: none;
+            margin: 25px 0 auto 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        li {
+            margin: 14px 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        li::before {
+            content: "⚔️";
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Contact Button / CTA */
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, #c1121f 100%);
+            color: white;
+            padding: 14px 36px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-radius: 30px;
+            margin-top: 25px;
+            box-shadow: 0 4px 15px rgba(255, 59, 71, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(255, 59, 71, 0.5);
+            background: linear-gradient(135deg, #ff525d 0%, var(--primary) 100%);
+        }
+
+        /* About Section */
+        .about {
+            max-width: 840px;
+            margin: 60px auto 20px auto;
+            padding: 35px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            border-bottom: 3px solid var(--accent); /* Golden touch for business success */
+        }
+
+        .about p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .about strong {
+            color: var(--text-main);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #4b4b54;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Animation/Responsive fine-tuning for mobile */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .hero h2 { font-size: 1.7rem; }
+            .hero, .about { margin: 30px 20px; padding: 25px; }
+            .pricing-container { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="ShogunCraft Logo">
+        </div>
+        <h1>SHOGUNCRAFT</h1>
+        <p class="tagline">Websites built with the precision of a Samurai</p>
+    </header>
+
+    <div class="hero">
+        <h2>A professional website doesn't have to cost a fortune.</h2>
+        <p>I build modern, lightning-fast websites that work perfectly on every mobile device. Made especially for local business owners who want to grow online.</p>
+    </div>
+
+    <div class="pricing-container">
+        <div class="price-card" id="card-design">
+            <div>
+                <span class="badge">One-time</span>
+                <h3>Website Design & Build</h3>
+                <div class="price" id="price-design">€20</div>
+                <ul>
+                    <li>Modern & unique design</li>
+                    <li>Fully mobile-friendly (responsive)</li>
+                    <li>Includes contact form</li>
+                    <li>Ready within 1 to 2 weeks</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="price-card featured" id="card-hosting">
+            <div>
+                <span class="badge">Popular</span>
+                <h3>Shogun Maintenance & Hosting</h3>
+                <div class="price" id="price-hosting">€10<span>/month</span></div>
+                <ul>
+                    <li>Lightning-fast and secure hosting</li>
+                    <li>Monthly checks</li>
+                    <li>Minor text or photo changes included</li>
+                    <li>12/7 support for any issues</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="about">
+        <p><strong>ShogunCraft</strong> was founded by a young, ambitious 13-year-old tech entrepreneur. <br>Driven by a passion for delivering maximum value at a sharp price.</p>
+        <a href="mailto:teamshoguncraft@gmail.com" class="cta-btn">Start Your Project</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ShogunCraft. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
